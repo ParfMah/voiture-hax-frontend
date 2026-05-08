@@ -1,0 +1,99 @@
+<!DOCTYPE html>
+<html lang="it">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="description" content="Acquista il tuo veicolo — Hax-ISA" />
+  <title>Ordine — Hax-ISA</title>
+
+  <link rel="stylesheet" href="../css/reset.css" />
+  <link rel="stylesheet" href="../css/variables.css" />
+  <link rel="stylesheet" href="../css/global.css" />
+  <link rel="stylesheet" href="../css/navbar.css" />
+  <link rel="stylesheet" href="../css/checkout.css" />
+  <link rel="stylesheet" href="../css/credit-simulator.css" />
+  <link rel="stylesheet" href="../css/footer.css" />
+  <link rel="stylesheet" href="../css/animations.css" />
+  <link rel="icon" href="../assets/icons/favicon.svg" type="image/svg+xml" />
+</head>
+<body class="page-checkout" data-page="checkout">
+
+  <header id="main-header" class="header header--minimal">
+    <nav id="main-nav" class="navbar" role="navigation" aria-label="Navigazione principale"></nav>
+  </header>
+
+  <main id="main-content">
+
+    <!-- Indicateur d'étapes -->
+    <div class="checkout-progress" aria-label="Passaggi dell'ordine">
+      <div class="container">
+        <ol id="checkout-steps-indicator" class="steps-indicator">
+          <li class="step active" data-step="1">
+            <span class="step__number">1</span>
+            <span class="step__label">Scelta</span>
+          </li>
+          <li class="step" data-step="2">
+            <span class="step__number">2</span>
+            <span class="step__label">Finanziamento</span>
+          </li>
+          <li class="step" data-step="3">
+            <span class="step__number">3</span>
+            <span class="step__label">Dati personali</span>
+          </li>
+          <li class="step" data-step="4">
+            <span class="step__number">4</span>
+            <span class="step__label">Riepilogo</span>
+          </li>
+          <li class="step" data-step="5">
+            <span class="step__number">5</span>
+            <span class="step__label">Conferma</span>
+          </li>
+        </ol>
+      </div>
+    </div>
+
+    <!-- Contenu dynamique de chaque étape -->
+    <section class="checkout-section">
+      <div class="container">
+        <div class="checkout-layout">
+
+          <!-- Zone principale (étapes) -->
+          <div id="checkout-main" class="checkout-main">
+            <!-- Injecté par js/pages/checkout.js -->
+          </div>
+
+          <!-- Récapitulatif latéral -->
+          <aside id="checkout-summary" class="checkout-summary" aria-label="Riepilogo ordine">
+            <!-- Injecté par js/pages/checkout.js -->
+          </aside>
+
+        </div>
+      </div>
+    </section>
+
+  </main>
+
+  <footer id="main-footer" class="footer footer--minimal" role="contentinfo"></footer>
+  <div id="page-loader" class="page-loader" aria-hidden="true">
+    <div class="loader-content">
+      <div class="loader-logo">HAX-ISA</div>
+      <div class="loader-spinner"></div>
+    </div>
+  </div>
+  <div id="toast-container" class="toast-container" aria-live="polite"></div>
+  <div id="modal-container" class="modal-container" role="dialog" aria-modal="true" aria-hidden="true"></div>
+
+  <script src="../js/config.js"></script>
+  <script src="../js/utils/helpers.js"></script>
+  <script src="../js/utils/api.js"></script>
+  <script src="../js/utils/storage.js"></script>
+  <script src="../js/components/navbar.js"></script>
+  <script src="../js/components/footer.js"></script>
+  <script src="../js/components/toast.js"></script>
+  <script src="../js/components/modal.js"></script>
+  <script src="../js/components/loader.js"></script>
+  <script src="../js/components/credit-simulator.js"></script>
+  <script src="../js/pages/checkout.js"></script>
+  <script src="../js/main.js"></script>
+</body>
+</html>

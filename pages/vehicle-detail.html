@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<html lang="it">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="description" content="Dettaglio veicolo — Hax-ISA" />
+  <title>Dettaglio Veicolo — Hax-ISA</title>
+
+  <link rel="stylesheet" href="../css/reset.css" />
+  <link rel="stylesheet" href="../css/variables.css" />
+  <link rel="stylesheet" href="../css/global.css" />
+  <link rel="stylesheet" href="../css/navbar.css" />
+  <link rel="stylesheet" href="../css/vehicle-detail.css" />
+  <link rel="stylesheet" href="../css/credit-simulator.css" />
+  <link rel="stylesheet" href="../css/footer.css" />
+  <link rel="stylesheet" href="../css/animations.css" />
+  <link rel="icon" href="../assets/icons/favicon.svg" type="image/svg+xml" />
+</head>
+<body class="page-vehicle-detail" data-page="vehicle-detail">
+
+  <header id="main-header" class="header">
+    <nav id="main-nav" class="navbar" role="navigation" aria-label="Navigazione principale"></nav>
+  </header>
+
+  <main id="main-content">
+
+    <!-- Fil d'Ariane -->
+    <nav class="breadcrumb" aria-label="Percorso di navigazione">
+      <div class="container">
+        <ol id="breadcrumb-list" class="breadcrumb__list">
+          <!-- Injecté par JS -->
+        </ol>
+      </div>
+    </nav>
+
+    <!-- Contenu principal détail véhicule -->
+    <section id="vehicle-detail-section" class="vehicle-detail-section">
+      <div class="container">
+        <!-- Injecté par js/pages/vehicle-detail.js -->
+        <div id="vehicle-detail-content" class="vehicle-detail-content">
+        </div>
+      </div>
+    </section>
+
+    <!-- Simulateur crédit intégré -->
+    <section id="credit-simulator-section" class="credit-simulator-section" aria-label="Simulatore di credito">
+      <div class="container">
+        <div id="credit-simulator-widget" class="credit-simulator-widget">
+          <!-- Injecté par js/components/credit-simulator.js -->
+        </div>
+      </div>
+    </section>
+
+    <!-- Véhicules similaires -->
+    <section id="similar-vehicles" class="similar-vehicles-section" aria-label="Veicoli simili">
+      <div class="container">
+        <h2 class="section-title">Veicoli Simili</h2>
+        <div id="similar-vehicles-grid" class="vehicles-grid vehicles-grid--small">
+          <!-- Injecté par JS -->
+        </div>
+      </div>
+    </section>
+
+  </main>
+
+  <footer id="main-footer" class="footer" role="contentinfo"></footer>
+  <div id="page-loader" class="page-loader" aria-hidden="true">
+    <div class="loader-content">
+      <div class="loader-logo">HAX-ISA</div>
+      <div class="loader-spinner"></div>
+    </div>
+  </div>
+  <div id="toast-container" class="toast-container" aria-live="polite"></div>
+  <div id="modal-container" class="modal-container" role="dialog" aria-modal="true" aria-hidden="true"></div>
+
+  <script src="../js/config.js"></script>
+  <script src="../js/utils/helpers.js"></script>
+  <script src="../js/utils/api.js"></script>
+  <script src="../js/utils/storage.js"></script>
+  <script src="../js/components/navbar.js"></script>
+  <script src="../js/components/footer.js"></script>
+  <script src="../js/components/toast.js"></script>
+  <script src="../js/components/modal.js"></script>
+  <script src="../js/components/loader.js"></script>
+  <script src="../js/components/credit-simulator.js"></script>
+  <script src="../js/pages/vehicle-detail.js"></script>
+  <script src="../js/main.js"></script>
+</body>
+</html>

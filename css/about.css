@@ -1,0 +1,12 @@
+/**
+ * about.css / contact.css — pages internes Hax-ISA
+ */
+.about-content-section, .contact-section {
+  padding: var(--space-20) 0 var(--space-24);
+}
+@media (max-width: 768px) {
+  .about-content-section .section-title + div,
+  .contact-section > div > div {
+    grid-template-columns: 1fr !important;
+  }
+}

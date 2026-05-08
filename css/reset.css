@@ -1,0 +1,27 @@
+/**
+ * reset.css — Normalisation cross-browser Hax-ISA
+ */
+*, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+html { font-size: 16px; scroll-behavior: smooth; -webkit-text-size-adjust: 100%; }
+body { min-height: 100vh; line-height: 1.5; -webkit-font-smoothing: antialiased; }
+h1,h2,h3,h4,h5,h6 { font-size: inherit; font-weight: inherit; line-height: 1.2; }
+ul, ol { list-style: none; }
+a { color: inherit; text-decoration: none; background-color: transparent; }
+img, picture, video, canvas, svg { display: block; max-width: 100%; height: auto; }
+img { border-style: none; object-fit: cover; }
+svg { overflow: hidden; vertical-align: middle; }
+input,button,textarea,select { font: inherit; color: inherit; background: transparent; border: none; outline: none; appearance: none; -webkit-appearance: none; }
+button { cursor: pointer; display: inline-flex; align-items: center; justify-content: center; user-select: none; }
+button:disabled { cursor: not-allowed; opacity: 0.6; }
+textarea { resize: vertical; }
+table { border-collapse: collapse; border-spacing: 0; width: 100%; }
+th { text-align: left; font-weight: 600; }
+hr { border: none; border-top: 1px solid currentColor; opacity: 0.2; margin: 0; }
+:focus { outline: none; }
+:focus-visible { outline: 2px solid var(--color-primary); outline-offset: 2px; border-radius: 2px; }
+::selection { background-color: rgba(192,57,43,0.2); color: inherit; }
+::-webkit-scrollbar { width: 8px; height: 8px; }
+::-webkit-scrollbar-track { background: #f1f1f1; }
+::-webkit-scrollbar-thumb { background: #C0392B; border-radius: 4px; }
+::-webkit-scrollbar-thumb:hover { background: #a93226; }
+.sr-only { position: absolute; width: 1px; height: 1px; padding: 0; margin: -1px; overflow: hidden; clip: rect(0,0,0,0); white-space: nowrap; border: 0; }

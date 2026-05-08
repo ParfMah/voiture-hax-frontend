@@ -1,0 +1,25 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 800 500" fill="none">
+  <rect width="800" height="500" fill="#F0F2F5"/>
+  <!-- Silhouette voiture simplifiée -->
+  <g transform="translate(200, 100)">
+    <!-- Carrosserie principale -->
+    <rect x="50" y="150" width="300" height="100" rx="10" fill="#CBD5E0"/>
+    <!-- Toit -->
+    <path d="M120 150 L160 80 L240 80 L280 150 Z" fill="#A0AEC0"/>
+    <!-- Roues -->
+    <circle cx="120" cy="250" r="40" fill="#4A5568"/>
+    <circle cx="120" cy="250" r="25" fill="#CBD5E0"/>
+    <circle cx="280" cy="250" r="40" fill="#4A5568"/>
+    <circle cx="280" cy="250" r="25" fill="#CBD5E0"/>
+    <!-- Vitres -->
+    <path d="M130 148 L160 90 L230 90 L262 148 Z" fill="#BEE3F8" opacity="0.6"/>
+    <!-- Phares -->
+    <rect x="320" y="165" width="30" height="20" rx="5" fill="#FEF08A"/>
+    <rect x="50" y="165" width="30" height="20" rx="5" fill="#FCA5A5"/>
+  </g>
+  <!-- Texte -->
+  <text x="400" y="420" text-anchor="middle" font-family="Arial, sans-serif"
+        font-size="24" fill="#718096" font-weight="600">Immagine non disponibile</text>
+  <text x="400" y="455" text-anchor="middle" font-family="Arial, sans-serif"
+        font-size="16" fill="#A0AEC0">HAX-ISA</text>
+</svg>

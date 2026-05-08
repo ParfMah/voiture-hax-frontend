@@ -1,0 +1,196 @@
+/**
+ * variables.css — Design Tokens Hax-ISA
+ */
+
+:root {
+
+  /* COULEURS PRINCIPALES */
+  --color-primary:          #C0392B;
+  --color-primary-dark:     #a93226;
+  --color-primary-darker:   #922b21;
+  --color-primary-light:    #e74c3c;
+  --color-primary-lighter:  #f1948a;
+  --color-primary-bg:       rgba(192, 57, 43, 0.06);
+  --color-primary-bg-hover: rgba(192, 57, 43, 0.12);
+
+  /* COULEUR SECONDAIRE */
+  --color-secondary:        #D4A017;
+  --color-secondary-dark:   #b8860b;
+  --color-secondary-light:  #F0C040;
+  --color-secondary-bg:     rgba(212, 160, 23, 0.08);
+
+  /* ACCENT */
+  --color-accent:           #2C3E50;
+  --color-accent-dark:      #1a252f;
+  --color-accent-light:     #34495e;
+
+  /* STATUTS */
+  --color-success:          #27AE60;
+  --color-success-bg:       rgba(39, 174, 96, 0.08);
+  --color-success-border:   rgba(39, 174, 96, 0.3);
+  --color-warning:          #F39C12;
+  --color-warning-bg:       rgba(243, 156, 18, 0.08);
+  --color-warning-border:   rgba(243, 156, 18, 0.3);
+  --color-danger:           #E74C3C;
+  --color-danger-bg:        rgba(231, 76, 60, 0.08);
+  --color-danger-border:    rgba(231, 76, 60, 0.3);
+  --color-info:             #2980B9;
+  --color-info-bg:          rgba(41, 128, 185, 0.08);
+  --color-info-border:      rgba(41, 128, 185, 0.3);
+
+  /* GRIS */
+  --color-white:            #FFFFFF;
+  --color-gray-50:          #F8F9FA;
+  --color-gray-100:         #F0F2F5;
+  --color-gray-200:         #E4E8ED;
+  --color-gray-300:         #CDD2DA;
+  --color-gray-400:         #A8B2BE;
+  --color-gray-500:         #7D8A97;
+  --color-gray-600:         #5A6473;
+  --color-gray-700:         #3D4655;
+  --color-gray-800:         #252D3A;
+  --color-gray-900:         #141921;
+  --color-black:            #0A0E14;
+
+  /* TEXTE */
+  --color-text-primary:     #1A202C;
+  --color-text-secondary:   #4A5568;
+  --color-text-muted:       #718096;
+  --color-text-light:       #A0AEC0;
+  --color-text-inverse:     #FFFFFF;
+
+  /* FONDS */
+  --color-bg-primary:       #FFFFFF;
+  --color-bg-secondary:     #F8F9FA;
+  --color-bg-tertiary:      #F0F2F5;
+  --color-bg-dark:          #1A202C;
+  --color-bg-darker:        #0F1419;
+
+  /* BORDURES */
+  --color-border:           #E2E8F0;
+  --color-border-light:     #EDF2F7;
+  --color-border-dark:      #CBD5E0;
+
+  /* TYPOGRAPHIE */
+  --font-primary:   'Segoe UI', -apple-system, BlinkMacSystemFont, 'Helvetica Neue', Arial, sans-serif;
+  --font-heading:   'Segoe UI', Georgia, 'Times New Roman', serif;
+  --font-mono:      'Cascadia Code', 'Courier New', Courier, monospace;
+
+  --text-xs:    0.75rem;
+  --text-sm:    0.875rem;
+  --text-base:  1rem;
+  --text-md:    1.125rem;
+  --text-lg:    1.25rem;
+  --text-xl:    1.5rem;
+  --text-2xl:   1.875rem;
+  --text-3xl:   2.25rem;
+  --text-4xl:   3rem;
+  --text-5xl:   3.75rem;
+  --text-6xl:   4.5rem;
+
+  --font-light:     300;
+  --font-regular:   400;
+  --font-medium:    500;
+  --font-semibold:  600;
+  --font-bold:      700;
+  --font-black:     900;
+
+  --leading-tight:  1.2;
+  --leading-snug:   1.375;
+  --leading-normal: 1.5;
+  --leading-relaxed:1.625;
+
+  --tracking-tight:  -0.025em;
+  --tracking-normal:  0em;
+  --tracking-wide:    0.025em;
+  --tracking-wider:   0.05em;
+  --tracking-widest:  0.1em;
+
+  /* ESPACEMENT */
+  --space-1:  0.25rem;
+  --space-2:  0.5rem;
+  --space-3:  0.75rem;
+  --space-4:  1rem;
+  --space-5:  1.25rem;
+  --space-6:  1.5rem;
+  --space-8:  2rem;
+  --space-10: 2.5rem;
+  --space-12: 3rem;
+  --space-16: 4rem;
+  --space-20: 5rem;
+  --space-24: 6rem;
+  --space-32: 8rem;
+
+  /* LAYOUT */
+  --container-sm:  640px;
+  --container-md:  768px;
+  --container-lg:  1024px;
+  --container-xl:  1280px;
+  --container-2xl: 1400px;
+  --container-pad: clamp(1rem, 5vw, 2rem);
+  --navbar-height: 72px;
+  --navbar-height-scrolled: 60px;
+
+  /* RAYONS */
+  --radius-sm:   4px;
+  --radius-md:   8px;
+  --radius-lg:   12px;
+  --radius-xl:   16px;
+  --radius-2xl:  24px;
+  --radius-full: 9999px;
+
+  /* OMBRES */
+  --shadow-xs:     0 1px 2px rgba(0,0,0,0.05);
+  --shadow-sm:     0 2px 4px rgba(0,0,0,0.06), 0 1px 2px rgba(0,0,0,0.04);
+  --shadow-md:     0 4px 12px rgba(0,0,0,0.08), 0 2px 6px rgba(0,0,0,0.06);
+  --shadow-lg:     0 10px 30px rgba(0,0,0,0.10), 0 4px 12px rgba(0,0,0,0.07);
+  --shadow-xl:     0 20px 50px rgba(0,0,0,0.12), 0 8px 20px rgba(0,0,0,0.08);
+  --shadow-2xl:    0 32px 80px rgba(0,0,0,0.16);
+  --shadow-inner:  inset 0 2px 6px rgba(0,0,0,0.06);
+  --shadow-primary: 0 8px 30px rgba(192, 57, 43, 0.20);
+  --shadow-card:    0 2px 8px rgba(0,0,0,0.06), 0 1px 3px rgba(0,0,0,0.04);
+
+  /* TRANSITIONS */
+  --transition-fast:   150ms ease;
+  --transition-base:   250ms ease;
+  --transition-slow:   400ms ease;
+  --transition-slower: 600ms ease;
+  --ease-in-out:  cubic-bezier(0.4, 0, 0.2, 1);
+  --ease-out:     cubic-bezier(0, 0, 0.2, 1);
+  --ease-bounce:  cubic-bezier(0.34, 1.56, 0.64, 1);
+
+  /* Z-INDEX */
+  --z-below:   -1;
+  --z-base:     0;
+  --z-raised:  10;
+  --z-dropdown:100;
+  --z-sticky:  200;
+  --z-fixed:   300;
+  --z-overlay: 400;
+  --z-modal:   500;
+  --z-toast:   600;
+  --z-loader:  700;
+
+  /* COMPOSANTS */
+  --card-radius:       var(--radius-lg);
+  --card-bg:           var(--color-white);
+  --card-border:       var(--color-border);
+  --card-shadow:       var(--shadow-card);
+  --card-shadow-hover: var(--shadow-primary);
+  --btn-height-sm:     36px;
+  --btn-height-md:     44px;
+  --btn-height-lg:     52px;
+  --btn-radius:        var(--radius-md);
+  --btn-font-weight:   var(--font-semibold);
+  --input-height:      48px;
+  --input-radius:      var(--radius-md);
+  --input-border:      var(--color-border-dark);
+  --input-bg:          var(--color-white);
+  --input-focus-border: var(--color-primary);
+  --input-focus-shadow: 0 0 0 3px rgba(192,57,43,0.12);
+  --overlay-bg:        rgba(10, 14, 20, 0.65);
+  --gradient-primary:  linear-gradient(135deg, var(--color-primary) 0%, var(--color-primary-dark) 100%);
+  --gradient-dark:     linear-gradient(135deg, var(--color-accent) 0%, var(--color-accent-dark) 100%);
+  --gradient-gold:     linear-gradient(135deg, var(--color-secondary-light) 0%, var(--color-secondary) 100%);
+  --gradient-hero:     linear-gradient(160deg, rgba(10,14,20,0.92) 0%, rgba(26,32,44,0.75) 60%, rgba(192,57,43,0.15) 100%);
+}

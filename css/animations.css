@@ -1,0 +1,262 @@
+/**
+ * animations.css — Système d'animations Hax-ISA
+ * Toutes les animations CSS + classes d'apparition au scroll
+ */
+
+/* ============================================================
+   KEYFRAMES GLOBAUX
+   ============================================================ */
+
+@keyframes spin {
+  to { transform: rotate(360deg); }
+}
+
+@keyframes fadeIn {
+  from { opacity: 0; }
+  to   { opacity: 1; }
+}
+
+@keyframes fadeInUp {
+  from { opacity: 0; transform: translateY(30px); }
+  to   { opacity: 1; transform: translateY(0); }
+}
+
+@keyframes fadeInDown {
+  from { opacity: 0; transform: translateY(-30px); }
+  to   { opacity: 1; transform: translateY(0); }
+}
+
+@keyframes fadeInLeft {
+  from { opacity: 0; transform: translateX(-30px); }
+  to   { opacity: 1; transform: translateX(0); }
+}
+
+@keyframes fadeInRight {
+  from { opacity: 0; transform: translateX(30px); }
+  to   { opacity: 1; transform: translateX(0); }
+}
+
+@keyframes scaleIn {
+  from { opacity: 0; transform: scale(0.85); }
+  to   { opacity: 1; transform: scale(1); }
+}
+
+@keyframes slideInUp {
+  from { transform: translateY(100%); }
+  to   { transform: translateY(0); }
+}
+
+@keyframes pulse {
+  0%, 100% { opacity: 1; }
+  50%       { opacity: 0.5; }
+}
+
+@keyframes pulseBorder {
+  0%, 100% { box-shadow: 0 0 0 0 rgba(192,57,43,0.4); }
+  50%       { box-shadow: 0 0 0 8px rgba(192,57,43,0); }
+}
+
+@keyframes shimmer {
+  0%   { background-position: -200% 0; }
+  100% { background-position: 200% 0; }
+}
+
+@keyframes countUp {
+  from { transform: translateY(20px); opacity: 0; }
+  to   { transform: translateY(0);    opacity: 1; }
+}
+
+@keyframes heroTextReveal {
+  from { opacity: 0; transform: translateY(40px) skewY(2deg); }
+  to   { opacity: 1; transform: translateY(0) skewY(0deg); }
+}
+
+@keyframes heroImageFloat {
+  0%, 100% { transform: translateY(0px) rotate(0deg); }
+  33%       { transform: translateY(-12px) rotate(0.5deg); }
+  66%       { transform: translateY(-6px) rotate(-0.3deg); }
+}
+
+@keyframes progressBar {
+  from { width: 0%; }
+  to   { width: var(--target-width, 100%); }
+}
+
+@keyframes gradientShift {
+  0%   { background-position: 0% 50%; }
+  50%  { background-position: 100% 50%; }
+  100% { background-position: 0% 50%; }
+}
+
+@keyframes bounceIn {
+  0%   { opacity: 0; transform: scale(0.3); }
+  50%  { opacity: 1; transform: scale(1.05); }
+  70%  { transform: scale(0.9); }
+  100% { transform: scale(1); }
+}
+
+@keyframes checkmark {
+  0%   { stroke-dashoffset: 100; }
+  100% { stroke-dashoffset: 0; }
+}
+
+@keyframes carDrive {
+  from { transform: translateX(-120%) scaleX(1); }
+  to   { transform: translateX(120vw) scaleX(1); }
+}
+
+/* ============================================================
+   CLASSES D'ANIMATION AU SCROLL (Intersection Observer)
+   Éléments avec [data-animate] sont visibles après apparition
+   ============================================================ */
+
+/* État initial — invisible avant animation */
+[data-animate] {
+  opacity: 0;
+  transition: opacity 0.6s var(--ease-out), transform 0.6s var(--ease-out);
+}
+
+[data-animate="fade-up"]    { transform: translateY(40px); }
+[data-animate="fade-down"]  { transform: translateY(-40px); }
+[data-animate="fade-left"]  { transform: translateX(-40px); }
+[data-animate="fade-right"] { transform: translateX(40px); }
+[data-animate="scale-in"]   { transform: scale(0.85); }
+[data-animate="fade"]       { transform: none; }
+
+/* État final — visible */
+[data-animate].animated {
+  opacity: 1;
+  transform: none !important;
+}
+
+/* Délais en cascade pour listes */
+[data-animate-delay="100"] { transition-delay: 0.1s; }
+[data-animate-delay="200"] { transition-delay: 0.2s; }
+[data-animate-delay="300"] { transition-delay: 0.3s; }
+[data-animate-delay="400"] { transition-delay: 0.4s; }
+[data-animate-delay="500"] { transition-delay: 0.5s; }
+[data-animate-delay="600"] { transition-delay: 0.6s; }
+
+/* ============================================================
+   SKELETON LOADER (chargement des cartes)
+   ============================================================ */
+.skeleton {
+  background: linear-gradient(
+    90deg,
+    var(--color-gray-200) 25%,
+    var(--color-gray-100) 50%,
+    var(--color-gray-200) 75%
+  );
+  background-size: 200% 100%;
+  animation: shimmer 1.5s infinite;
+  border-radius: var(--radius-md);
+}
+
+.skeleton-card {
+  background: var(--color-white);
+  border-radius: var(--card-radius);
+  border: 1px solid var(--color-border);
+  overflow: hidden;
+  box-shadow: var(--shadow-card);
+}
+.skeleton-card__img  { height: 220px; }
+.skeleton-card__body { padding: var(--space-5); }
+.skeleton-card__line { height: 14px; margin-bottom: var(--space-3); }
+.skeleton-card__line--short { width: 60%; }
+.skeleton-card__line--price { height: 20px; width: 40%; margin-top: var(--space-4); }
+
+/* ============================================================
+   TRANSITIONS SPÉCIFIQUES COMPOSANTS
+   ============================================================ */
+
+/* Image zoom sur hover (carte véhicule) */
+.vehicle-card__img-wrapper {
+  overflow: hidden;
+}
+.vehicle-card__img-wrapper img {
+  transition: transform 0.5s var(--ease-out);
+}
+.vehicle-card:hover .vehicle-card__img-wrapper img {
+  transform: scale(1.06);
+}
+
+/* Underline animé pour liens texte */
+.link-animated {
+  position: relative;
+  display: inline-block;
+}
+.link-animated::after {
+  content: '';
+  position: absolute;
+  bottom: -2px; left: 0; right: 100%;
+  height: 2px;
+  background: var(--color-primary);
+  border-radius: var(--radius-full);
+  transition: right var(--transition-base);
+}
+.link-animated:hover::after { right: 0; }
+
+/* Bouton avec effet de remplissage */
+.btn-fill-effect {
+  position: relative;
+  overflow: hidden;
+  z-index: 0;
+}
+.btn-fill-effect::before {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background: rgba(0,0,0,0.1);
+  transform: scaleX(0);
+  transform-origin: left;
+  transition: transform var(--transition-base) var(--ease-out);
+  z-index: -1;
+}
+.btn-fill-effect:hover::before { transform: scaleX(1); }
+
+/* Icone rotation au hover */
+.icon-rotate { transition: transform var(--transition-base); }
+.hover-rotate:hover .icon-rotate { transform: rotate(15deg); }
+
+/* Flèche qui se déplace au hover */
+.arrow-slide svg {
+  transition: transform var(--transition-base);
+}
+.arrow-slide:hover svg { transform: translateX(4px); }
+
+/* ============================================================
+   ANIMATIONS PAGE SPÉCIFIQUES
+   ============================================================ */
+
+/* Confirmation commande — checkmark animé */
+.confirmation-check-circle {
+  animation: scaleIn 0.5s var(--ease-bounce) forwards;
+}
+.confirmation-checkmark {
+  stroke-dasharray: 100;
+  stroke-dashoffset: 100;
+  animation: checkmark 0.6s ease-out 0.3s forwards;
+}
+
+/* Compteur chiffres (statistiques) */
+.stat-number {
+  animation: countUp 0.6s var(--ease-out) forwards;
+}
+
+/* Barre de progression crédit */
+.progress-bar-fill {
+  animation: progressBar 1s var(--ease-out) forwards;
+}
+
+/* ============================================================
+   PREFERENCES ACCESSIBILITÉ — Réduire les animations
+   ============================================================ */
+@media (prefers-reduced-motion: reduce) {
+  *, *::before, *::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+  }
+  [data-animate] { opacity: 1; transform: none; }
+  .skeleton { animation: none; background: var(--color-gray-200); }
+}

@@ -1,0 +1,364 @@
+/**
+ * vehicle-detail.css — Page détail véhicule Hax-ISA
+ */
+
+/* ============================================================
+   LAYOUT PRINCIPAL
+   ============================================================ */
+.vehicle-detail-section { padding: var(--space-8) 0 var(--space-20); }
+
+.vehicle-detail-content {
+  display: grid;
+  grid-template-columns: 1fr 380px;
+  gap: var(--space-10);
+  align-items: start;
+}
+
+/* ============================================================
+   GALERIE PHOTOS
+   ============================================================ */
+.vehicle-gallery { position: sticky; top: calc(var(--navbar-height) + var(--space-4)); }
+
+.gallery-main {
+  position: relative;
+  border-radius: var(--radius-xl);
+  overflow: hidden;
+  background: var(--color-bg-tertiary);
+  aspect-ratio: 16/10;
+  margin-bottom: var(--space-3);
+  cursor: zoom-in;
+}
+.gallery-main__img {
+  width: 100%; height: 100%;
+  object-fit: cover;
+  transition: transform 0.5s var(--ease-out), opacity 0.3s ease;
+}
+.gallery-main__img.transitioning { opacity: 0; transform: scale(1.03); }
+
+/* Boutons navigation galerie */
+.gallery-nav {
+  position: absolute; top: 50%; transform: translateY(-50%);
+  width: 40px; height: 40px;
+  background: rgba(255,255,255,0.92);
+  backdrop-filter: blur(8px);
+  border: none; border-radius: 50%;
+  cursor: pointer; color: var(--color-text-primary);
+  display: flex; align-items: center; justify-content: center;
+  box-shadow: var(--shadow-md);
+  transition: all var(--transition-fast);
+  z-index: 2;
+}
+.gallery-nav:hover { background: white; transform: translateY(-50%) scale(1.08); box-shadow: var(--shadow-lg); }
+.gallery-nav--prev { left: var(--space-3); }
+.gallery-nav--next { right: var(--space-3); }
+
+/* Compteur photos */
+.gallery-counter {
+  position: absolute; bottom: var(--space-3); right: var(--space-3);
+  background: rgba(0,0,0,0.55);
+  color: white;
+  padding: var(--space-1) var(--space-3);
+  border-radius: var(--radius-full);
+  font-size: var(--text-xs); font-weight: var(--font-semibold);
+  backdrop-filter: blur(4px);
+}
+
+/* Badge plein écran */
+.gallery-fullscreen-btn {
+  position: absolute; bottom: var(--space-3); left: var(--space-3);
+  background: rgba(0,0,0,0.45);
+  color: white; border: none; border-radius: var(--radius-md);
+  padding: var(--space-2); cursor: pointer;
+  display: flex; align-items: center;
+  backdrop-filter: blur(4px);
+  transition: background var(--transition-fast);
+}
+.gallery-fullscreen-btn:hover { background: rgba(0,0,0,0.7); }
+
+/* Thumbnails */
+.gallery-thumbs {
+  display: flex; gap: var(--space-2); overflow-x: auto; padding-bottom: var(--space-1);
+}
+.gallery-thumbs::-webkit-scrollbar { height: 4px; }
+.gallery-thumbs::-webkit-scrollbar-thumb { background: var(--color-gray-300); border-radius: 2px; }
+
+.gallery-thumb {
+  flex-shrink: 0;
+  width: 80px; height: 56px;
+  border-radius: var(--radius-md);
+  overflow: hidden;
+  cursor: pointer;
+  border: 2px solid transparent;
+  transition: all var(--transition-fast);
+  background: var(--color-bg-tertiary);
+}
+.gallery-thumb img { width: 100%; height: 100%; object-fit: cover; }
+.gallery-thumb.active { border-color: var(--color-primary); box-shadow: 0 0 0 1px var(--color-primary); }
+.gallery-thumb:hover:not(.active) { border-color: var(--color-gray-300); transform: translateY(-2px); }
+
+/* Lightbox plein écran */
+.gallery-lightbox {
+  position: fixed; inset: 0;
+  background: rgba(0,0,0,0.95);
+  z-index: var(--z-modal);
+  display: flex; align-items: center; justify-content: center;
+  opacity: 0; visibility: hidden;
+  transition: all var(--transition-base);
+}
+.gallery-lightbox.open { opacity: 1; visibility: visible; }
+.gallery-lightbox__img {
+  max-width: 90vw; max-height: 90vh;
+  object-fit: contain;
+  border-radius: var(--radius-lg);
+}
+.gallery-lightbox__close {
+  position: absolute; top: var(--space-5); right: var(--space-5);
+  width: 44px; height: 44px;
+  background: rgba(255,255,255,0.1); border: none; border-radius: 50%;
+  color: white; font-size: var(--text-xl); cursor: pointer;
+  display: flex; align-items: center; justify-content: center;
+  transition: background var(--transition-fast);
+}
+.gallery-lightbox__close:hover { background: rgba(255,255,255,0.2); }
+
+/* ============================================================
+   PANNEAU LATÉRAL DROIT — Infos + Achat
+   ============================================================ */
+.vehicle-aside {}
+
+/* En-tête véhicule */
+.vehicle-header { margin-bottom: var(--space-6); }
+.vehicle-header__brand {
+  font-size: var(--text-xs); font-weight: var(--font-bold);
+  color: var(--color-primary); letter-spacing: var(--tracking-widest);
+  text-transform: uppercase; margin-bottom: var(--space-2);
+  display: flex; align-items: center; gap: var(--space-2);
+}
+.vehicle-header__name {
+  font-size: clamp(var(--text-xl), 3vw, var(--text-3xl));
+  font-weight: var(--font-black);
+  color: var(--color-text-primary);
+  line-height: var(--leading-tight);
+  margin-bottom: var(--space-4);
+}
+.vehicle-header__badges { display: flex; flex-wrap: wrap; gap: var(--space-2); }
+
+/* Prix */
+.vehicle-price-card {
+  background: var(--color-bg-secondary);
+  border-radius: var(--radius-xl);
+  padding: var(--space-6);
+  margin-bottom: var(--space-5);
+  border: 1px solid var(--color-border);
+}
+.vehicle-price-card__label { font-size: var(--text-xs); color: var(--color-text-muted); text-transform: uppercase; letter-spacing: var(--tracking-wider); margin-bottom: var(--space-2); }
+.vehicle-price-card__price-row { display: flex; align-items: baseline; gap: var(--space-3); margin-bottom: var(--space-3); }
+.vehicle-price-card__price {
+  font-size: var(--text-4xl); font-weight: var(--font-black);
+  color: var(--color-primary); line-height: 1;
+}
+.vehicle-price-card__old {
+  font-size: var(--text-xl); color: var(--color-text-light);
+  text-decoration: line-through; font-weight: var(--font-regular);
+}
+.vehicle-price-card__discount {
+  font-size: var(--text-sm); font-weight: var(--font-bold);
+  color: var(--color-success);
+  background: var(--color-success-bg);
+  padding: var(--space-1) var(--space-3);
+  border-radius: var(--radius-full);
+}
+.vehicle-price-card__monthly {
+  font-size: var(--text-sm); color: var(--color-text-muted);
+  padding-top: var(--space-3);
+  border-top: 1px solid var(--color-border);
+}
+.vehicle-price-card__monthly strong { color: var(--color-primary); font-size: var(--text-md); }
+
+/* CTA acquisto */
+.vehicle-cta-group {
+  display: flex; flex-direction: column; gap: var(--space-3);
+  margin-bottom: var(--space-6);
+}
+.vehicle-cta-group .btn { width: 100%; font-size: var(--text-md); }
+
+/* Info rapide */
+.vehicle-quick-specs {
+  display: grid; grid-template-columns: 1fr 1fr;
+  gap: var(--space-3);
+  padding: var(--space-5);
+  background: var(--color-white);
+  border: 1px solid var(--color-border);
+  border-radius: var(--radius-xl);
+  margin-bottom: var(--space-5);
+}
+.vehicle-quick-spec {
+  display: flex; flex-direction: column; gap: 2px;
+}
+.vehicle-quick-spec__icon-label {
+  display: flex; align-items: center; gap: var(--space-2);
+  font-size: var(--text-xs); color: var(--color-text-muted);
+  text-transform: uppercase; letter-spacing: var(--tracking-wider);
+}
+.vehicle-quick-spec__value {
+  font-size: var(--text-sm); font-weight: var(--font-bold);
+  color: var(--color-text-primary); padding-left: 22px;
+}
+
+/* Garanzie */
+.vehicle-guarantees {
+  display: flex; flex-direction: column; gap: var(--space-3);
+  padding: var(--space-5);
+  background: var(--color-success-bg);
+  border: 1px solid var(--color-success-border);
+  border-radius: var(--radius-xl);
+}
+.vehicle-guarantee {
+  display: flex; align-items: center; gap: var(--space-3);
+  font-size: var(--text-sm); color: var(--color-text-secondary);
+}
+.vehicle-guarantee svg { color: var(--color-success); flex-shrink: 0; }
+
+/* ============================================================
+   TABS SPECIFICA / STORIA / EQUIPAGGIAMENTO
+   ============================================================ */
+.vehicle-tabs-section { grid-column: 1 / -1; margin-top: var(--space-8); }
+
+.vehicle-tabs {
+  display: flex; gap: 0;
+  border-bottom: 2px solid var(--color-border);
+  margin-bottom: var(--space-8);
+  overflow-x: auto;
+}
+.vehicle-tab-btn {
+  padding: var(--space-4) var(--space-6);
+  font-size: var(--text-sm); font-weight: var(--font-semibold);
+  color: var(--color-text-muted);
+  background: none; border: none; cursor: pointer;
+  border-bottom: 3px solid transparent;
+  margin-bottom: -2px;
+  transition: all var(--transition-fast);
+  white-space: nowrap;
+  letter-spacing: var(--tracking-wide);
+}
+.vehicle-tab-btn:hover { color: var(--color-primary); }
+.vehicle-tab-btn.active { color: var(--color-primary); border-bottom-color: var(--color-primary); }
+
+.vehicle-tab-panel { display: none; }
+.vehicle-tab-panel.active { display: block; }
+
+/* Grille spécifications */
+.specs-grid {
+  display: grid; grid-template-columns: repeat(3, 1fr);
+  gap: var(--space-4);
+}
+.spec-item {
+  display: flex; align-items: flex-start; gap: var(--space-4);
+  padding: var(--space-5);
+  background: var(--color-bg-secondary);
+  border-radius: var(--radius-lg);
+  border: 1px solid var(--color-border-light);
+  transition: box-shadow var(--transition-fast);
+}
+.spec-item:hover { box-shadow: var(--shadow-sm); }
+.spec-item__icon {
+  width: 40px; height: 40px;
+  background: var(--color-primary-bg);
+  border-radius: var(--radius-md);
+  display: flex; align-items: center; justify-content: center;
+  font-size: 1.1rem; flex-shrink: 0;
+}
+.spec-item__label {
+  font-size: var(--text-xs); color: var(--color-text-muted);
+  text-transform: uppercase; letter-spacing: var(--tracking-wider); margin-bottom: 4px;
+}
+.spec-item__value {
+  font-size: var(--text-sm); font-weight: var(--font-bold);
+  color: var(--color-text-primary);
+}
+
+/* Équipements */
+.equipment-grid {
+  display: grid; grid-template-columns: repeat(2, 1fr);
+  gap: var(--space-3);
+}
+.equipment-category { }
+.equipment-category__title {
+  font-size: var(--text-sm); font-weight: var(--font-bold);
+  color: var(--color-text-primary);
+  padding: var(--space-3) 0 var(--space-2);
+  border-bottom: 1px solid var(--color-border);
+  margin-bottom: var(--space-3);
+  display: flex; align-items: center; gap: var(--space-2);
+}
+.equipment-list { display: flex; flex-direction: column; gap: var(--space-2); }
+.equipment-item {
+  display: flex; align-items: center; gap: var(--space-3);
+  font-size: var(--text-sm); color: var(--color-text-secondary);
+}
+.equipment-item::before {
+  content: '✓';
+  width: 18px; height: 18px; flex-shrink: 0;
+  background: var(--color-success-bg);
+  color: var(--color-success);
+  border-radius: 50%;
+  display: flex; align-items: center; justify-content: center;
+  font-size: 10px; font-weight: var(--font-bold);
+}
+
+/* Historique véhicule */
+.vehicle-history { display: flex; flex-direction: column; gap: var(--space-6); }
+.history-item {
+  display: flex; gap: var(--space-5); position: relative;
+  padding-left: var(--space-5);
+}
+.history-item::before {
+  content: ''; position: absolute;
+  left: 0; top: 20px; bottom: -24px;
+  width: 2px; background: var(--color-border);
+}
+.history-item:last-child::before { display: none; }
+.history-item__dot {
+  position: absolute; left: -7px; top: 6px;
+  width: 16px; height: 16px;
+  border-radius: 50%;
+  background: var(--color-primary);
+  border: 3px solid var(--color-white);
+  box-shadow: 0 0 0 2px var(--color-primary);
+  flex-shrink: 0;
+}
+.history-item__date {
+  font-size: var(--text-xs); color: var(--color-text-muted);
+  font-weight: var(--font-semibold); letter-spacing: var(--tracking-wide);
+  white-space: nowrap; min-width: 80px;
+}
+.history-item__content {}
+.history-item__title { font-size: var(--text-sm); font-weight: var(--font-semibold); color: var(--color-text-primary); margin-bottom: 2px; }
+.history-item__desc  { font-size: var(--text-xs); color: var(--color-text-muted); }
+
+/* ============================================================
+   SEZIONE SIMILI
+   ============================================================ */
+.similar-vehicles-section {
+  padding: var(--space-16) 0 var(--space-20);
+  background: var(--color-bg-secondary);
+}
+
+/* ============================================================
+   RESPONSIVE
+   ============================================================ */
+@media (max-width: 1100px) {
+  .vehicle-detail-content { grid-template-columns: 1fr 320px; }
+}
+@media (max-width: 900px) {
+  .vehicle-detail-content { grid-template-columns: 1fr; }
+  .vehicle-gallery { position: static; }
+  .vehicle-tabs-section { grid-column: 1; }
+  .specs-grid { grid-template-columns: repeat(2,1fr); }
+  .equipment-grid { grid-template-columns: 1fr; }
+}
+@media (max-width: 640px) {
+  .specs-grid { grid-template-columns: 1fr; }
+  .vehicle-quick-specs { grid-template-columns: 1fr 1fr; }
+  .vehicle-price-card__price { font-size: var(--text-3xl); }
+}
