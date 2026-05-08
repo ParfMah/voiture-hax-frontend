@@ -12,13 +12,13 @@ const VehicleDetailPage = (() => {
   // ============================================================
   const ALL_VEHICLES = [
     {
-      _id:'v01', marca:'BMW', modello:'Serie 5 520d xDrive', tipo:'nuovo', anno:2024,
-      chilometri:0, prezzo:58900, prezzoOld:null, carburante:'Diesel', cambio:'Automatico',
-      potenza:'190 CV', cilindrata:'1995 cc', colore:'Grigio Sophistograu', posti:5,
-      porte:4, categoria:'berlina', immagini:[], trazione:'Integrale xDrive',
-      consumo:'5.2 l/100km', emissioni:'137 g/km CO₂', peso:'1.715 kg',
-      lunghezza:'4963 mm', larghezza:'1868 mm', velocita:'240 km/h',
-      accelerazione:'7.1 sec (0–100)',
+      _id: 'v01', marca: 'BMW', modello: 'Serie 5 520d xDrive', tipo: 'nuovo', anno: 2024,
+      chilometri: 0, prezzo: 58900, prezzoOld: null, carburante: 'Diesel', cambio: 'Automatico',
+      potenza: '190 CV', cilindrata: '1995 cc', colore: 'Grigio Sophistograu', posti: 5,
+      porte: 4, categoria: 'berlina', immagini: [], trazione: 'Integrale xDrive',
+      consumo: '5.2 l/100km', emissioni: '137 g/km CO₂', peso: '1.715 kg',
+      lunghezza: '4963 mm', larghezza: '1868 mm', velocita: '240 km/h',
+      accelerazione: '7.1 sec (0–100)',
       descrizione: 'La BMW Serie 5 rappresenta l\'eccellenza nella categoria berlina di lusso. Con il motore diesel da 190 CV e la trazione integrale xDrive, offre prestazioni eccezionali e comfort ineguagliabile. Gli interni sono rivestiti in pelle Vernasca e dispongono di tutti i comfort più moderni.',
       equipaggiamento: {
         'Sicurezza': ['ABS e ASC', 'Airbag frontali e laterali', 'Controllo della stabilità DSC', 'Assistenza alla frenata in curva', 'Riconoscimento pedoni', 'Avviso di collisione frontale'],
@@ -32,43 +32,43 @@ const VehicleDetailPage = (() => {
       ],
     },
     {
-      _id:'v02', marca:'Mercedes', modello:'GLC 300 4MATIC AMG Line', tipo:'nuovo', anno:2024,
-      chilometri:0, prezzo:72400, prezzoOld:null, carburante:'Benzina', cambio:'Automatico',
-      potenza:'258 CV', cilindrata:'1999 cc', colore:'Bianco Polare', posti:5,
-      porte:5, categoria:'suv', immagini:[], trazione:'4MATIC',
-      consumo:'8.1 l/100km', emissioni:'183 g/km CO₂', peso:'1.920 kg',
-      lunghezza:'4716 mm', larghezza:'1890 mm', velocita:'240 km/h',
-      accelerazione:'6.2 sec (0–100)',
-      descrizione:'Il Mercedes GLC rappresenta la perfezione nel segmento SUV premium. La linea AMG conferisce sportività e dinamismo, mentre il motore turbo benzina da 258 CV garantisce prestazioni entusiasmanti con la trazione integrale 4MATIC.',
-      equipaggiamento:{
-        'Sicurezza':['PRE-SAFE Plus','Active Brake Assist','Blind Spot Assist','Attention Assist','Airbag a tendina'],
-        'Comfort':['MBUX con display 11.9"','Sedili AMG in Artico/Dinamica','Clima bizona','Tetto panoramico','Keyless-Go'],
-        'Connettività':['MBUX Navigation Plus','Apple CarPlay/Android Auto','Burmester 3D Surround','USB-C x3'],
-        'Esterno':['Cerchi AMG 20" bicolor','Fari Multibeam LED','Pacchetto esterno AMG','Portellone elettrico'],
+      _id: 'v02', marca: 'Mercedes', modello: 'GLC 300 4MATIC AMG Line', tipo: 'nuovo', anno: 2024,
+      chilometri: 0, prezzo: 72400, prezzoOld: null, carburante: 'Benzina', cambio: 'Automatico',
+      potenza: '258 CV', cilindrata: '1999 cc', colore: 'Bianco Polare', posti: 5,
+      porte: 5, categoria: 'suv', immagini: [], trazione: '4MATIC',
+      consumo: '8.1 l/100km', emissioni: '183 g/km CO₂', peso: '1.920 kg',
+      lunghezza: '4716 mm', larghezza: '1890 mm', velocita: '240 km/h',
+      accelerazione: '6.2 sec (0–100)',
+      descrizione: 'Il Mercedes GLC rappresenta la perfezione nel segmento SUV premium. La linea AMG conferisce sportività e dinamismo, mentre il motore turbo benzina da 258 CV garantisce prestazioni entusiasmanti con la trazione integrale 4MATIC.',
+      equipaggiamento: {
+        'Sicurezza': ['PRE-SAFE Plus', 'Active Brake Assist', 'Blind Spot Assist', 'Attention Assist', 'Airbag a tendina'],
+        'Comfort': ['MBUX con display 11.9"', 'Sedili AMG in Artico/Dinamica', 'Clima bizona', 'Tetto panoramico', 'Keyless-Go'],
+        'Connettività': ['MBUX Navigation Plus', 'Apple CarPlay/Android Auto', 'Burmester 3D Surround', 'USB-C x3'],
+        'Esterno': ['Cerchi AMG 20" bicolor', 'Fari Multibeam LED', 'Pacchetto esterno AMG', 'Portellone elettrico'],
       },
-      storia:[{data:'2024',titolo:'Nuovo',desc:'Mai immatricolato'}],
+      storia: [{ data: '2024', titolo: 'Nuovo', desc: 'Mai immatricolato' }],
     },
     {
-      _id:'v03', marca:'Audi', modello:'A4 35 TDI S line', tipo:'usato', anno:2022,
-      chilometri:38000, prezzo:34500, prezzoOld:38900, carburante:'Diesel', cambio:'Automatico',
-      potenza:'163 CV', cilindrata:'1968 cc', colore:'Nero Mythos', posti:5,
-      porte:4, categoria:'berlina', immagini:[], trazione:'Trazione anteriore',
-      consumo:'4.8 l/100km', emissioni:'127 g/km CO₂', peso:'1.480 kg',
-      lunghezza:'4762 mm', larghezza:'1847 mm', velocita:'230 km/h',
-      accelerazione:'8.1 sec (0–100)',
-      descrizione:'Audi A4 in versione S line con allestimento sportivo e motore diesel efficiente. Unico proprietario, sempre revisionata in Audi Service. Condizioni eccellenti, nessun graffio o ammaccatura. Pneumatici invernali inclusi.',
-      equipaggiamento:{
-        'Sicurezza':['Audi Pre Sense City','Avviso corsia','ACC adattativo','6 airbag'],
-        'Comfort':['Virtual Cockpit Plus 12.3"','MMI Navigation plus','Sedili in pelle Dakota','Clima bizona'],
-        'Connettività':['MMI Navigation plus','Apple CarPlay','Bluetooth','4 USB'],
-        'Esterno':['Cerchi S line 18"','Fari LED con luce diurna','Vetri oscurati'],
+      _id: 'v03', marca: 'Audi', modello: 'A4 35 TDI S line', tipo: 'usato', anno: 2022,
+      chilometri: 38000, prezzo: 34500, prezzoOld: 38900, carburante: 'Diesel', cambio: 'Automatico',
+      potenza: '163 CV', cilindrata: '1968 cc', colore: 'Nero Mythos', posti: 5,
+      porte: 4, categoria: 'berlina', immagini: [], trazione: 'Trazione anteriore',
+      consumo: '4.8 l/100km', emissioni: '127 g/km CO₂', peso: '1.480 kg',
+      lunghezza: '4762 mm', larghezza: '1847 mm', velocita: '230 km/h',
+      accelerazione: '8.1 sec (0–100)',
+      descrizione: 'Audi A4 in versione S line con allestimento sportivo e motore diesel efficiente. Unico proprietario, sempre revisionata in Audi Service. Condizioni eccellenti, nessun graffio o ammaccatura. Pneumatici invernali inclusi.',
+      equipaggiamento: {
+        'Sicurezza': ['Audi Pre Sense City', 'Avviso corsia', 'ACC adattativo', '6 airbag'],
+        'Comfort': ['Virtual Cockpit Plus 12.3"', 'MMI Navigation plus', 'Sedili in pelle Dakota', 'Clima bizona'],
+        'Connettività': ['MMI Navigation plus', 'Apple CarPlay', 'Bluetooth', '4 USB'],
+        'Esterno': ['Cerchi S line 18"', 'Fari LED con luce diurna', 'Vetri oscurati'],
       },
-      storia:[
-        {data:'Mar 2022',titolo:'Prima immatricolazione',desc:'Acquistata nuova da privato a Milano'},
-        {data:'Ott 2022',titolo:'Tagliando 15.000 km',desc:'Effettuato presso Audi Service Milano'},
-        {data:'Apr 2023',titolo:'Tagliando 30.000 km',desc:'Effettuato presso Audi Service Torino'},
-        {data:'Nov 2023',titolo:'Revisione',desc:'Superata con esito positivo'},
-        {data:'Gen 2024',titolo:'Vendita a Hax-ISA',desc:'Acquistata e certificata dal nostro team'},
+      storia: [
+        { data: 'Mar 2022', titolo: 'Prima immatricolazione', desc: 'Acquistata nuova da privato a Milano' },
+        { data: 'Ott 2022', titolo: 'Tagliando 15.000 km', desc: 'Effettuato presso Audi Service Milano' },
+        { data: 'Apr 2023', titolo: 'Tagliando 30.000 km', desc: 'Effettuato presso Audi Service Torino' },
+        { data: 'Nov 2023', titolo: 'Revisione', desc: 'Superata con esito positivo' },
+        { data: 'Gen 2024', titolo: 'Vendita a Hax-ISA', desc: 'Acquistata e certificata dal nostro team' },
       ],
     },
   ];
@@ -120,7 +120,7 @@ const VehicleDetailPage = (() => {
 
     const thumbsHTML = galleryState.images.map((src, i) => `
       <div class="gallery-thumb ${i === 0 ? 'active' : ''}" onclick="VehicleDetailPage.goToImage(${i})">
-        <img src="${src}" alt="Foto ${i+1}" onerror="this.src='${PLACEHOLDER}'" loading="lazy"/>
+        <img src="${src}" alt="Foto ${i + 1}" onerror="this.src='${PLACEHOLDER}'" loading="lazy"/>
       </div>
     `).join('');
 
@@ -192,8 +192,8 @@ const VehicleDetailPage = (() => {
               ${vehicle.anno}
             </span>
             ${vehicle.chilometri > 0
-              ? `<span class="badge badge--info">${Helpers.formatKm(vehicle.chilometri)}</span>`
-              : '<span class="badge badge--success">0 km</span>'}
+        ? `<span class="badge badge--info">${Helpers.formatKm(vehicle.chilometri)}</span>`
+        : '<span class="badge badge--success">0 km</span>'}
             ${discount ? `<span class="badge badge--danger">-${discount}%</span>` : ''}
           </div>
         </div>
@@ -240,15 +240,15 @@ const VehicleDetailPage = (() => {
         <!-- Specifiche rapide -->
         <div class="vehicle-quick-specs">
           ${[
-            { icon:'⛽', label:'Carburante',    value: vehicle.carburante },
-            { icon:'⚙️', label:'Cambio',        value: vehicle.cambio },
-            { icon:'⚡', label:'Potenza',       value: vehicle.potenza },
-            { icon:'🔧', label:'Cilindrata',    value: vehicle.cilindrata || '—' },
-            { icon:'🎨', label:'Colore',        value: vehicle.colore },
-            { icon:'👥', label:'Posti / Porte', value: `${vehicle.posti}p / ${vehicle.porte}p` },
-            { icon:'🏎️', label:'Trazione',      value: vehicle.trazione || '—' },
-            { icon:'📊', label:'Consumo',       value: vehicle.consumo || '—' },
-          ].map(s => `
+        { icon: '⛽', label: 'Carburante', value: vehicle.carburante },
+        { icon: '⚙️', label: 'Cambio', value: vehicle.cambio },
+        { icon: '⚡', label: 'Potenza', value: vehicle.potenza },
+        { icon: '🔧', label: 'Cilindrata', value: vehicle.cilindrata || '—' },
+        { icon: '🎨', label: 'Colore', value: vehicle.colore },
+        { icon: '👥', label: 'Posti / Porte', value: `${vehicle.posti}p / ${vehicle.porte}p` },
+        { icon: '🏎️', label: 'Trazione', value: vehicle.trazione || '—' },
+        { icon: '📊', label: 'Consumo', value: vehicle.consumo || '—' },
+      ].map(s => `
             <div class="vehicle-quick-spec">
               <span class="vehicle-quick-spec__icon-label">
                 <span>${s.icon}</span>${s.label}
@@ -261,12 +261,12 @@ const VehicleDetailPage = (() => {
         <!-- Garanzie -->
         <div class="vehicle-guarantees">
           ${[
-            'Garanzia soddisfatti o rimborsati 7 giorni',
-            'Veicolo controllato a 100 punti',
-            'Storico completo e chilometraggio certificato',
-            'Consegna a domicilio in tutta Europa',
-            'Assistenza post-vendita dedicata',
-          ].map(g => `
+        'Garanzia soddisfatti o rimborsati 7 giorni',
+        'Veicolo controllato a 100 punti',
+        'Storico completo e chilometraggio certificato',
+        'Consegna a domicilio in tutta Europa',
+        'Assistenza post-vendita dedicata',
+      ].map(g => `
             <div class="vehicle-guarantee">
               <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5">
                 <path d="M22 11.08V12a10 10 0 11-5.93-9.14"/>
@@ -286,18 +286,18 @@ const VehicleDetailPage = (() => {
   // ============================================================
   function renderTabs(vehicle) {
     const specsHTML = [
-      { icon:'⚡', label:'Potenza massima',    value: vehicle.potenza },
-      { icon:'🔧', label:'Cilindrata',         value: vehicle.cilindrata || '—' },
-      { icon:'⛽', label:'Alimentazione',      value: vehicle.carburante },
-      { icon:'⚙️', label:'Cambio',             value: vehicle.cambio },
-      { icon:'🏎️', label:'Trazione',           value: vehicle.trazione || '—' },
-      { icon:'💨', label:'Emissioni CO₂',      value: vehicle.emissioni || '—' },
-      { icon:'📊', label:'Consumo medio',      value: vehicle.consumo || '—' },
-      { icon:'⚖️', label:'Peso a vuoto',       value: vehicle.peso || '—' },
-      { icon:'📏', label:'Lunghezza',          value: vehicle.lunghezza || '—' },
-      { icon:'↔️', label:'Larghezza',          value: vehicle.larghezza || '—' },
-      { icon:'🚀', label:'Velocità massima',   value: vehicle.velocita || '—' },
-      { icon:'⏱️', label:'0–100 km/h',         value: vehicle.accelerazione || '—' },
+      { icon: '⚡', label: 'Potenza massima', value: vehicle.potenza },
+      { icon: '🔧', label: 'Cilindrata', value: vehicle.cilindrata || '—' },
+      { icon: '⛽', label: 'Alimentazione', value: vehicle.carburante },
+      { icon: '⚙️', label: 'Cambio', value: vehicle.cambio },
+      { icon: '🏎️', label: 'Trazione', value: vehicle.trazione || '—' },
+      { icon: '💨', label: 'Emissioni CO₂', value: vehicle.emissioni || '—' },
+      { icon: '📊', label: 'Consumo medio', value: vehicle.consumo || '—' },
+      { icon: '⚖️', label: 'Peso a vuoto', value: vehicle.peso || '—' },
+      { icon: '📏', label: 'Lunghezza', value: vehicle.lunghezza || '—' },
+      { icon: '↔️', label: 'Larghezza', value: vehicle.larghezza || '—' },
+      { icon: '🚀', label: 'Velocità massima', value: vehicle.velocita || '—' },
+      { icon: '⏱️', label: '0–100 km/h', value: vehicle.accelerazione || '—' },
     ].map(s => `
       <div class="spec-item" data-animate="fade-up">
         <div class="spec-item__icon">${s.icon}</div>
@@ -361,12 +361,12 @@ const VehicleDetailPage = (() => {
         </div>
 
         <div id="tab-description" class="vehicle-tab-panel" role="tabpanel">
-          <div style="max-width:72ch">
-            <p style="font-size:var(--text-md);line-height:var(--leading-relaxed);color:var(--color-text-secondary)">
-              ${vehicle.descrizione || ''}
-            </p>
-          </div>
-        </div>
+        <div style="max-width:100%">
+        <p style="font-size:var(--text-md);line-height:var(--leading-relaxed);color:var(--color-text-secondary);word-break:break-word">
+      ${vehicle.descrizione || ''}
+    </p>
+  </div>
+</div>
       </div>
     `;
   }
@@ -407,14 +407,14 @@ const VehicleDetailPage = (() => {
   // GALERIE ACTIONS
   // ============================================================
   function goToImage(idx) {
-    const imgs   = galleryState.images;
+    const imgs = galleryState.images;
     if (idx < 0 || idx >= imgs.length) return;
     galleryState.current = idx;
 
     const mainImg = document.getElementById('gallery-main-img');
     const counter = document.getElementById('gallery-counter');
-    const thumbs  = document.querySelectorAll('.gallery-thumb');
-    const lbImg   = document.getElementById('lightbox-img');
+    const thumbs = document.querySelectorAll('.gallery-thumb');
+    const lbImg = document.getElementById('lightbox-img');
 
     if (mainImg) {
       mainImg.classList.add('transitioning');
@@ -424,7 +424,7 @@ const VehicleDetailPage = (() => {
       }, 200);
     }
     if (counter) counter.textContent = `${idx + 1} / ${imgs.length}`;
-    if (lbImg)   lbImg.src = imgs[idx];
+    if (lbImg) lbImg.src = imgs[idx];
     thumbs.forEach((t, i) => t.classList.toggle('active', i === idx));
   }
 
@@ -486,7 +486,7 @@ const VehicleDetailPage = (() => {
   }
 
   function submitInfoRequest() {
-    const name  = document.getElementById('info-name')?.value.trim();
+    const name = document.getElementById('info-name')?.value.trim();
     const phone = document.getElementById('info-phone')?.value.trim();
     if (!name || !phone) {
       ToastComponent.show('Compila i campi obbligatori.', 'warning');
@@ -511,8 +511,8 @@ const VehicleDetailPage = (() => {
   // POINT D'ENTRÉE
   // ============================================================
   function init() {
-    const params  = Helpers.getUrlParams();
-    const id      = params.get('id') || 'v01';
+    const params = Helpers.getUrlParams();
+    const id = params.get('id') || 'v01';
     const vehicle = findVehicle(id);
 
     // Breadcrumb
@@ -547,8 +547,8 @@ const VehicleDetailPage = (() => {
       const lb = document.getElementById('gallery-lightbox');
       if (!lb?.classList.contains('open')) return;
       if (e.key === 'ArrowRight') nextImage();
-      if (e.key === 'ArrowLeft')  prevImage();
-      if (e.key === 'Escape')     closeLightbox();
+      if (e.key === 'ArrowLeft') prevImage();
+      if (e.key === 'Escape') closeLightbox();
     });
   }
 
