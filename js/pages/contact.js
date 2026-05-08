@@ -7,7 +7,7 @@ const ContactPage = (() => {
     const el = document.getElementById('contact-content');
     if (!el) return;
     el.innerHTML = `
-      <div style="display:grid;grid-template-columns:1fr 1.5fr;gap:var(--space-12);align-items:start">
+      <div class="contact-grid-container">
         <!-- Info contatto -->
         <div data-animate="fade-up">
           <h2 class="section-title" style="margin-bottom:var(--space-6)">Parlaci</h2>
@@ -30,7 +30,7 @@ const ContactPage = (() => {
         <div data-animate="fade-up" data-animate-delay="100">
           <div style="background:var(--color-white);border-radius:var(--radius-2xl);padding:var(--space-8);border:1px solid var(--color-border);box-shadow:var(--shadow-md)">
             <h3 style="font-size:var(--text-xl);font-weight:var(--font-bold);margin-bottom:var(--space-6)">Inviaci un Messaggio</h3>
-            <div style="display:grid;grid-template-columns:1fr 1fr;gap:var(--space-5)">
+            <div class="form-grid">
               <div class="form-group">
                 <label class="form-label form-label--required">Nome</label>
                 <input type="text" class="form-control" id="c-nome" placeholder="Mario"/>

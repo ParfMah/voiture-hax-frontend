@@ -7,7 +7,7 @@ const AboutPage = (() => {
     const el = document.getElementById('about-main');
     if (!el) return;
     el.innerHTML = `
-      <div style="display:grid;grid-template-columns:1fr 1fr;gap:var(--space-16);align-items:start">
+      <div class="about-grid-container">
         <div>
           <h2 class="section-title" data-animate="fade-up">La Nostra Storia</h2>
           <p style="margin:var(--space-6) 0;color:var(--color-text-secondary);line-height:var(--leading-relaxed)" data-animate="fade-up" data-animate-delay="100">
@@ -20,7 +20,7 @@ const AboutPage = (() => {
             costruendo una reputazione basata su tre pilastri: <strong>qualità certificata</strong>,
             <strong>prezzi trasparenti</strong> e <strong>servizio impeccabile</strong>.
           </p>
-          <div style="display:grid;grid-template-columns:repeat(3,1fr);gap:var(--space-6);margin:var(--space-8) 0" data-animate="fade-up" data-animate-delay="200">
+          <div class="stats-grid" data-animate="fade-up" data-animate-delay="200">
             ${[['14+','Anni'],['8.400+','Clienti'],['15','Paesi'],['1.200+','Veicoli'],['200+','Partner'],['98%','Soddisfazione']].map(([n,l])=>`
               <div style="text-align:center;padding:var(--space-4);background:var(--color-bg-secondary);border-radius:var(--radius-lg);border:1px solid var(--color-border)">
                 <div style="font-size:var(--text-2xl);font-weight:var(--font-black);color:var(--color-primary)">${n}</div>

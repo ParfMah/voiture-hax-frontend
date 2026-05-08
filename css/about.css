@@ -1,58 +1,62 @@
 /**
- * about.css — Correction responsive finale
+ * about.css — Correction complète et responsive
  */
 
+/* 1. Le conteneur principal */
 .about-content-section {
-  padding: 40px 0; /* Un peu d'espace vertical */
+  padding: var(--space-20) 0 var(--space-24);
   width: 100%;
   box-sizing: border-box;
+  overflow-x: hidden; /* Sécurité anti-débordement */
 }
 
 .about-content-section .container {
   width: 100%;
-  max-width: 1100px;
-  margin: 0 auto; /* Tente de centrer sur grand écran */
-  padding: 0 20px; /* Padding latéral pour l'espace sur mobile */
+  max-width: 1140px;
+  margin: 0 auto;
+  padding: 0 20px;
   box-sizing: border-box;
 }
 
-/* Assurez-vous que le contenu injecté par JS respecte le padding */
-.about-main {
-  display: flex;
-  flex-direction: column;
-  gap: 30px;
-  width: 100%;
-  text-align: left; /* Aligné à gauche par défaut pour le texte long */
+/* 2. Les classes pour la grille injectée par about.js */
+.about-grid-container {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: var(--space-16);
+  align-items: start;
 }
 
-/* Forcer le centrage de certains éléments comme les boutons et titres principaux sur mobile */
+.stats-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: var(--space-6);
+  margin: var(--space-8) 0;
+}
+
+/* 3. Adaptation Mobile */
 @media (max-width: 768px) {
-  .about-content-section .container {
-    padding: 0 15px; /* Légèrement moins de padding sur très petit écran */
+  .about-content-section {
+    padding: var(--space-12) 0;
+  }
+
+  .about-grid-container {
+    grid-template-columns: 1fr; /* On empile les colonnes */
+    gap: var(--space-10);
+  }
+
+  .stats-grid {
+    grid-template-columns: repeat(2, 1fr); /* 2 colonnes sur mobile pour la lisibilité */
   }
   
-  /* Les cartes de statistiques se transforment en une seule colonne centrée */
-  .about-main > * {
-    display: flex;
-    flex-direction: column;
-    align-items: center; /* Centre le contenu des cartes */
-    text-align: center; /* Centre le texte des cartes */
-    width: 100%;
-  }
-  
-  /* Les paragraphes restent alignés à gauche pour la lisibilité */
-  .about-main p {
-    text-align: left;
-    width: 100%;
-  }
-  
-  /* Centrer les titres principaux comme "La Nostra Storia" */
-  .about-main h2 {
+  /* Centrage esthétique pour mobile */
+  .section-title {
     text-align: center;
   }
   
-  /* Centrer le bouton "Contattaci" */
-  .about-main .contattaci-btn {
-    align-self: center;
+  .about-grid-container .btn {
+    display: flex;
+    justify-content: center;
+    width: fit-content;
+    margin: 0 auto;
   }
 }
