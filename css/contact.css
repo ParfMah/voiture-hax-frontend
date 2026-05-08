@@ -1,12 +1,58 @@
 /**
- * contact.css / contact.css — pages internes Hax-ISA
+ * contact.css — Page Contatti Hax-ISA
  */
-.contact-content-section, .contact-section {
-  padding: var(--space-20) 0 var(--space-24);
+
+/* Gestion du conteneur principal */
+.contact-section .container {
+  width: 100%;
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 0 var(--space-6); /* Évite que le contenu colle aux bords sur mobile */
+  box-sizing: border-box;
 }
+
+.contact-section {
+  padding: var(--space-20) 0 var(--space-24);
+  overflow-x: hidden; /* Sécurité anti-débordement */
+}
+
+/* Cible le contenu injecté par contact.js (Formulaire + Infos) */
+.contact-content {
+  display: grid;
+  grid-template-columns: 1fr 1fr; /* Deux colonnes sur PC */
+  gap: var(--space-10);
+  width: 100%;
+}
+
+/* Sécurité pour les formulaires injectés */
+.contact-content form, 
+.contact-content input, 
+.contact-content textarea {
+  width: 100% !important;
+  max-width: 100%;
+  box-sizing: border-box; /* Inclut le padding dans la largeur */
+}
+
+/* --- Adaptabilité Mobile --- */
 @media (max-width: 768px) {
-  .contact-content-section .section-title + div,
+  .contact-section {
+    padding: var(--space-12) 0;
+  }
+
+  .contact-content {
+    display: flex !important;
+    flex-direction: column !important; /* Empile les éléments verticalement */
+    align-items: center;
+  }
+
+  /* Force le bloc interne à prendre toute la largeur disponible */
   .contact-section > div > div {
     grid-template-columns: 1fr !important;
+    width: 100%;
+  }
+  
+  .page-banner__title {
+    font-size: 2.2rem;
+    text-align: center;
   }
 }

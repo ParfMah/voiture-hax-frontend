@@ -1,12 +1,44 @@
 /**
- * about.css / contact.css — pages internes Hax-ISA
+ * about.css — Page Chi Siamo Hax-ISA
  */
-.about-content-section, .contact-section {
-  padding: var(--space-20) 0 var(--space-24);
+
+/* Le conteneur assure le centrage et empêche de toucher les bords */
+.about-content-section .container {
+  width: 100%;
+  max-width: 1200px; /* Largeur maximale sur grand écran */
+  margin: 0 auto;    /* Centre le bloc horizontalement */
+  padding: 0 var(--space-6); /* Sécurité pour que le texte ne touche pas les bords sur mobile */
+  box-sizing: border-box;
 }
+
+.about-content-section {
+  padding: var(--space-20) 0 var(--space-24);
+  overflow-x: hidden; /* Empêche tout débordement horizontal accidentel */
+}
+
+/* Gestion du contenu injecté par JS */
+.about-main {
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-12);
+  width: 100%;
+}
+
 @media (max-width: 768px) {
-  .about-content-section .section-title + div,
-  .contact-section > div > div {
+  .about-content-section {
+    padding: var(--space-12) 0; /* Réduit un peu l'espace vertical sur mobile */
+  }
+
+  /* Si ton JS injecte une grille, on force le passage en une seule colonne */
+  .about-main, 
+  .about-content-section .section-title + div {
+    display: block !important; 
     grid-template-columns: 1fr !important;
+  }
+  
+  /* Force les titres à rester dans l'écran */
+  .page-banner__title {
+    font-size: 2rem; 
+    word-wrap: break-word;
   }
 }
