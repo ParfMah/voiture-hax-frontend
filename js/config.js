@@ -25,7 +25,7 @@ const HAX_CONFIG = Object.freeze({
 
   // URL de l'API backend
   api: {
-    baseUrl: 'http://localhost:3000/api',
+    baseUrl: 'https://voiture-hax-backend.onrender.com',
     timeout: 10000, // 10 secondes
     version: 'v1',
   },
