@@ -10,7 +10,7 @@ const AdminApp = (() => {
   // ============================================================
   // CONFIGURAZIONE
   // ============================================================
-  const API_BASE  = 'http://localhost:3000/api';
+  const API_BASE  = 'https://voiture-hax-backend.onrender.com/api';
   const DEMO_MODE = true; // true = funziona senza backend
 
   // ============================================================
